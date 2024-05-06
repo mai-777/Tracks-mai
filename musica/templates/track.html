@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lista de tracks</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <h1>Tracks</h1>
+    <ul>
+      {% for t in tracks %}
+      <li>{{ t['name'] }}</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>

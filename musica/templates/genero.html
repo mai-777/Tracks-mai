@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lista de generos</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <h1>Generos</h1>
+    <ul>
+      {% for g in generos %}
+      <li>{{ g['name'] }}</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>

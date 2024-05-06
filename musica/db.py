@@ -6,9 +6,12 @@ from flask import current_app, g
 
 #constans with name and location of database
 db_folder = current_app.instance_path
-db_name ='youtube.sqlite'
+db_name ='musica.sqlite'
 db_file =os.path.join(db_folder, db_name)
 db_sql_file = 'chinook.sql'
+
+
+
 def get_db():#conectarse a la base d datos
     if 'db' not in g:
         g.db = sqlite3.connect(
@@ -30,7 +33,7 @@ def init_db():
     #ensure the instance folder exists
     try:
         os.makedirs(db_folder)
-    except OSError
+    except OSError:
         pass
 
     db = get_db()
