@@ -9,11 +9,43 @@
     />
   </head>
   <body>
-    <h1>Tracks</h1>
-    <ul>
-      {% for t in tracks %}
-      <li>{{ t['name'] }}</li>
-      {% endfor %}
-    </ul>
+    <h1>Canciones y artistas</h1>
+    <table class="content-table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Artistas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ul>
+          {% for t in tracks %}
+          <tr>
+            <td>{{ t['name'] }}</td>
+            <td>{{ t['artistas'] }}</td>
+          </tr>
+          {% endfor %}
+        </ul>
+      </tbody>
+    </table>
   </body>
 </html>
+
+<!-- <table class="content-table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Artistas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ul>
+      {% for t in tracks %}
+        <tr>
+          <td>{{ t['name'] }}</td>
+          <td>{{ t['artistas'] }}</td>
+        </tr>
+      {% endfor %}
+    </ul>
+  </tbody>
+</table> -->
