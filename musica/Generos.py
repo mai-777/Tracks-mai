@@ -14,7 +14,7 @@ def generos():
     lista_de_resultado = resultado.fetchall()
     return render_template("genero.html",generos=lista_de_resultado)
 
-@bp.route('/<init:id>')
+@bp.route('/<int:id>')
 def detalle(id):
     con = db.get_db()
     consulta1 = """
@@ -37,21 +37,3 @@ def detalle(id):
                              genero = genero,
                              canciones = lista_canciones)
     return pagina
-
-
-
-
-
-
-
-
-@app.route('/genero')
-def generos():
-    base_de_datos = db.get_db()
-    consulta = """
-            SELECT name FROM genres
-            ORDER by name;
-    """
-    resultado = base_de_datos.execute(consulta)
-    lista_de_resultado = resultado.fetchall()
-    return render_template("genero.html",generos=lista_de_resultado)

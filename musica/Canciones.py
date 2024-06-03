@@ -1,5 +1,9 @@
+from flask import Blueprint, render_template
+from.import db
 
-@app.route('/track')
+bp = Blueprint('track', __name__, url_prefix='/track')
+
+@bp.route('/track')
 def tracks():
     base_de_datos = db.get_db()
     consulta = """
