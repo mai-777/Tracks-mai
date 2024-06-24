@@ -1,29 +1,32 @@
 from flask import Blueprint, render_template
 from.import db
 
-bp = Blueprint('Artistas', __name__, url_prefix='/Artistas')
+bp = Blueprint('artista', __name__, url_prefix='/artista')
 
 @bp.route('/')
-def generos():
+def artista():
     base_de_datos = db.get_db()
     consulta = """
-            SELECT * FROM artists
+            SELECT name FROM artists
             ORDER by name;
     """
     resultado = base_de_datos.execute(consulta)
     lista_de_resultado = resultado.fetchall()
-    return render_template("Artistas.html",Artistas=lista_de_resultado)
+    return render_template("artista.html",artista=lista_de_resultado)
 
 @bp.route('/<int:id>')
 def detalle(id):
     con = db.get_db()
     consulta1 = """
-            SELECT * FROM artists
+            SELECT name, ArtistId FROM artists
             WHERE ArtistsId = ?;
         """
     consulta2 = """
-            SELECT * FROM albums
-            WHERE AlbumId = ?;
+            SELECT a.ArtistId, name, b.Title as titulo, b.AlbumId FROM artists a 
+            LEFT JOIN albums b ON a.ArtistId = b.ArtistId
+            WHERE AlbumId = ?
+            AND AlbumId IS NOT NULL
+            ORDER by name ASC;
         """
     res = con.execute(consulta1, (id,))
     artista = res.fetchone()

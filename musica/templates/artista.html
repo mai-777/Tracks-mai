@@ -1,19 +1,12 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Lista de generos</title>
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{{ url_for('static', filename='style.css') }}"
-    />
-  </head>
-  <body>
-    <h1>Generos</h1>
-    <ul>
-      {% for g in generos %}
-      <li><a href="">{{ g['name'] }}</a></li>
-      {% endfor %}
-    </ul>
-  </body>
-</html>
+{% extends "genero.html" %} {% block title %} Lista de Artistas {% endblock %}
+{% block header %} Artistas {% endblock %} {% block content %}
+<ul>
+  {% for a in artista %}
+  <li>
+    <a href="{{ url_for('artista.detalle', id=a['ArtistId'])}}">
+      {{ a['name'] }}
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}
