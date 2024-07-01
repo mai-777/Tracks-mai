@@ -1,0 +1,12 @@
+{% extends "genero.html" %} {% block title %} Albums {% endblock %} {% block
+header %} Albums {% endblock %} {% block content %}
+<ul>
+  {% for a in albums %}
+  <li>
+    <a href="{{ url_for('album.detalle', id=a['AlbumId'])}}">
+      {{ a['title'] }}
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

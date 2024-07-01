@@ -7,7 +7,7 @@ bp = Blueprint('artista', __name__, url_prefix='/artista')
 def artista():
     base_de_datos = db.get_db()
     consulta = """
-            SELECT name FROM artists
+            SELECT name, ArtistId FROM artists
             ORDER by name;
     """
     resultado = base_de_datos.execute(consulta)
@@ -19,7 +19,7 @@ def detalle(id):
     con = db.get_db()
     consulta1 = """
             SELECT name, ArtistId FROM artists
-            WHERE ArtistsId = ?;
+            WHERE ArtistId = ?;
         """
     consulta2 = """
             SELECT a.ArtistId, name, b.Title as titulo, b.AlbumId FROM artists a 

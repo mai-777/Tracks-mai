@@ -23,7 +23,7 @@ def detalle(id):
         """
     consulta2 = """
             SELECT t.name, t.TrackId FROM tracks t
-            WHERE AlbumId = ?;
+            WHERE t.AlbumId = ?;
         """
     res = con.execute(consulta1, (id,))
     album = res.fetchone()
