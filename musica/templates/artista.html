@@ -1,5 +1,6 @@
 {% extends "genero.html" %} {% block title %} Lista de Artistas {% endblock %}
 {% block header %} Artistas {% endblock %} {% block content %}
+<a href="{{ url_for('artista.nuevo')}}">Agregar artista</a>
 <ul>
   {% for a in artista %}
   <li>

@@ -1,0 +1,8 @@
+{% extends "genero.html" %} {% block title %} Nuevo artista {% endblock %} {%
+block header %} Nuevo artista {% endblock %} {% block content %}
+<form method="POST">
+  <label for="name">Nombre</label>
+  <input type="text" name="name" id="name" />
+  <input type="submit" value="Guardar" />
+</form>
+{% endblock %}
